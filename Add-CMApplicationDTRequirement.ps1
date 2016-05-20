@@ -11,7 +11,8 @@ param (
         ValueFromPipeline=$true,
         ValueFromPipelineByPropertyName=$true)
     ]
-    $appName = "test"
+    $appName = "test",
+    $requirement = "Windows/All_x86_Windows_8.1_Client"
 )
 
 begin {
@@ -21,6 +22,7 @@ if ((get-psdrive $sitecode -erroraction SilentlyContinue | measure).Count -ne 1)
 }
 set-location $sitecode`:
 }
+
 process {
 $Appdt = Get-CMApplication -Name $appName 
 $xml = [Microsoft.ConfigurationManagement.ApplicationManagement.Serialization.SccmSerializer]::DeserializeFromString($appdt.SDMPackageXML,$True)
@@ -47,5 +49,5 @@ Set-CMApplication -InputObject $appDT
 
 end
 {
-    set-location $env:SystemDrive
+set-location $env:SystemDrive
 }
