@@ -1,5 +1,56 @@
 ﻿<#
 This will append one more OS Requirements to an existing app deployment.
+Possible RuleIDs
+Windows/All_x86_Windows_XP                                                                                                  
+Windows/x64_Windows_XP_Professional_SP2                                                                                     
+Windows/x86_Windows_XP_Professional_Service_Pack_3                                                                          
+Windows/All_x64_Windows_Vista                                                                                               
+Windows/All_x86_Windows_Vista                                                                                               
+Windows/x64_Windows_Vista_SP2                                                                                               
+Windows/x86_Windows_Vista_SP2                                                                                               
+Windows/All_x64_Windows_7_Client                                                                                            
+Windows/All_x86_Windows_7_Client                                                                                            
+Windows/x64_Windows_7_Client                                                                                                
+Windows/x64_Windows_7_SP1                                                                                                   
+Windows/x86_Windows_7_Client                                                                                                
+Windows/x86_Windows_7_SP1                                                                                                   
+Windows/All_ARM_Windows_8_Client                                                                                            
+Windows/All_x64_Windows_8_Client                                                                                            
+Windows/All_x86_Windows_8_Client                                                                                            
+Windows/All_ARM_Windows_8.1_Client                                                                                          
+Windows/All_x64_Windows_8.1_Client                                                                                          
+Windows/All_x86_Windows_8.1_Client                                                                                          
+Windows/All_x64_Windows_10_and_higher_Clients                                                                               
+Windows/All_x86_Windows_10_and_higher_Clients                                                                               
+Windows/All_x64_Windows_Server_2003_Non_R2                                                                                  
+Windows/All_x64_Windows_Server_2003_R2                                                                                      
+Windows/All_x86_Windows_Server_2003_Non_R2                                                                                  
+Windows/All_x86_Windows_Server_2003_R2                                                                                      
+Windows/x64_Windows_Server_2003_R2_SP2                                                                                      
+Windows/x64_Windows_Server_2003_SP2                                                                                         
+Windows/x86_Windows_Server_2003_R2_SP2                                                                                      
+Windows/x86_Windows_Server_2003_SP2                                                                                         
+Windows/All_x64_Windows_Server_2008                                                                                         
+Windows/All_x64_Windows_Server_2008_R2                                                                                      
+Windows/All_x86_Windows_Server_2008                                                                                         
+Windows/x64_Windows_Server_2008_R2                                                                                          
+Windows/x64_Windows_Server_2008_R2_CORE                                                                                     
+Windows/x64_Windows_Server_2008_R2_SP1                                                                                      
+Windows/x64_Windows_Server_2008_R2_SP1_Core                                                                                 
+Windows/x64_Windows_Server_2008_SP2                                                                                         
+Windows/x64_Windows_Server_2008_SP2_Core                                                                                    
+Windows/x86_Windows_Server_2008_SP2                                                                                         
+Windows/All_x64_Windows_Server_8                                                                                            
+Windows/All_x64_Windows_Server_2012_R2                                                                                      
+Windows/All_Embedded_Windows_XP                                                                                             
+Windows/All_x64_Windows_Embedded_8.1_Industry                                                                               
+Windows/All_x64_Windows_Embedded_8_Industry                                                                                 
+Windows/All_x64_Windows_Embedded_8_Standard                                                                                 
+Windows/All_x86_Windows_Embedded_8.1_Industry                                                                               
+Windows/All_x86_Windows_Embedded_8_Industry                                                                                 
+Windows/All_x86_Windows_Embedded_8_Standard                                                                                 
+Windows/x64_Embedded_Windows_7                                                                                              
+Windows/x86_Embedded_Windows_7  
 #>
 
 [CmdletBinding()]
@@ -12,7 +63,9 @@ param (
         ValueFromPipelineByPropertyName=$true)
     ]
     $appName = "test",
-    $requirement = "Windows/All_x86_Windows_8.1_Client"
+    $requirementName = "All Windows 8.1 (32-bit)"
+    #make intellisense work here for all options.
+    #$requirementoperand = "Windows/All_x86_Windows_8.1_Client" 
 )
 
 begin {
