@@ -39,6 +39,12 @@ if ((get-psdrive $sitecode -erroraction SilentlyContinue | measure).Count -ne 1)
 }
 set-location $sitecode`:
 #create the hash
+$NamedPairs = @{};
+Get-Content .\NameValidateSet.txt | ForEach-Object {
+    $name = $PSItem.Split(",")[0]
+    $operand = $PSItem.Split(",")[1]
+    $NamedPairs.Add($name, $operand)
+}
 
 }
 
