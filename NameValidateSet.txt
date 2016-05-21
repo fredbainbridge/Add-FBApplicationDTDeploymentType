@@ -1,0 +1,52 @@
+﻿All Windows XP (32-bit),Windows/All_x86_Windows_XP                                                                                                  
+All Windows XP (64-bit),Windows/All_x64_Windows_XP_Professional
+Windows XP SP2 (64-bit),Windows/x64_Windows_XP_Professional_SP2                                                                                     
+Windows XP SP3 (32-bit),Windows/x86_Windows_XP_Professional_Service_Pack_3                                                                          
+All Windows Vista (64-bit),Windows/All_x64_Windows_Vista                                                                                               
+All Windows Vista (32-bit),Windows/All_x86_Windows_Vista                                                                                               
+Windows Vista SP2 (64-bit),Windows/x64_Windows_Vista_SP2                                                                                               
+Windows Vista SP2 (32-bit),Windows/x86_Windows_Vista_SP2                                                                                               
+All Windows 7 (64-bit),Windows/All_x64_Windows_7_Client                                                                                            
+All Windows 7 (32-bit),Windows/All_x86_Windows_7_Client                                                                                            
+Windows 7 (64-bit),Windows/x64_Windows_7_Client                                                                                                
+Windows 7 SP1 (64-bit),Windows/x64_Windows_7_SP1                                                                                                   
+Windows 7 (32-bit),Windows/x86_Windows_7_Client                                                                                                
+Windows 7 SP1 (32-bit),Windows/x86_Windows_7_SP1                                                                                                   
+All Windows RT,Windows/All_ARM_Windows_8_Client                                                                                            
+All Windows 8 (64-bit),Windows/All_x64_Windows_8_Client                                                                                            
+All Windows 8 (32-bit),Windows/All_x86_Windows_8_Client                                                                                            
+All Windows RT 8.1,Windows/All_ARM_Windows_8.1_Client                                                                                          
+All Windows 8.1 (64-bit),Windows/All_x64_Windows_8.1_Client                                                                                          
+All Windows 8.1 (32-bit),Windows/All_x86_Windows_8.1_Client                                                                                          
+All Windows 10 (64-bit),Windows/All_x64_Windows_10_and_higher_Clients                                                                               
+All Windows 10 (32-bit),Windows/All_x86_Windows_10_and_higher_Clients                                                                               
+All Windows Server 2003 (Non-R2) (64-bit),Windows/All_x64_Windows_Server_2003_Non_R2                                                                                  
+All Windows Server 2003 R2 (64-bit),Windows/All_x64_Windows_Server_2003_R2                                                                                      
+All Windows Server 2003 (Non-R2) (32-bit),Windows/All_x86_Windows_Server_2003_Non_R2                                                                                  
+All Windows Server 2003 R2 (32-bit),Windows/All_x86_Windows_Server_2003_R2                                                                                      
+Windows Server 2003 R2 SP2 (64-bit),Windows/x64_Windows_Server_2003_R2_SP2                                                                                      
+Windows Server 2003 SP2 (64-bit),Windows/x64_Windows_Server_2003_SP2                                                                                         
+Windows Server 2003 R2 SP2 (32-bit),Windows/x86_Windows_Server_2003_R2_SP2                                                                                      
+Windows Server 2003 SP2 (32-bit),Windows/x86_Windows_Server_2003_SP2                                                                                         
+All Windows Server 2008 (Non-R2) (64-bit),Windows/All_x64_Windows_Server_2008                                                                                         
+All Windows Server 2008 R2 (64-bit),Windows/All_x64_Windows_Server_2008_R2                                                                                      
+All Windows Server 2008 (32-bit),Windows/All_x86_Windows_Server_2008                                                                                         
+Windows Server 2008 R2 (64-bit),Windows/x64_Windows_Server_2008_R2                                                                                          
+Windows Server 2008 R2 Core (64-bit),Windows/x64_Windows_Server_2008_R2_CORE                                                                                     
+Windows Server 2008 R2 SP1 (64-bit),Windows/x64_Windows_Server_2008_R2_SP1                                                                                      
+Windows Server 2008 R2 SP1 Core (64-bit),Windows/x64_Windows_Server_2008_R2_SP1_Core                                                                                 
+Windows Server 2008 SP2 (64-bit),Windows/x64_Windows_Server_2008_SP2                                                                                         
+Windows Server 2008 SP2 Core (64-bit),Windows/x64_Windows_Server_2008_SP2_Core                                                                                    
+Windows Server 2008 SP2 (32-bit),Windows/x86_Windows_Server_2008_SP2                                                                                         
+All Windows Server 2012 (64-bit),Windows/All_x64_Windows_Server_8                                                                                            
+All Windows Server 2012 R2 (64-bit),Windows/All_x64_Windows_Server_2012_R2                                                                                      
+All Embedded Windows XP,Windows/All_Embedded_Windows_XP                                                                                             
+Windows Embedded 8.1 Industry (64-bit),Windows/All_x64_Windows_Embedded_8.1_Industry                                                                               
+Windows Embedded 8 Industry (64-bit),Windows/All_x64_Windows_Embedded_8_Industry                                                                                 
+Windows Embedded 8 Standard (64-bit),Windows/All_x64_Windows_Embedded_8_Standard                                                                                 
+Windows Embedded 8.1 Industry (32-bit),Windows/All_x86_Windows_Embedded_8.1_Industry                                                                               
+Windows Embedded 8 Industry (32-bit),Windows/All_x86_Windows_Embedded_8_Industry                                                                                 
+Windows Embedded 8 Standard (32-bit),Windows/All_x86_Windows_Embedded_8_Standard                                                                                 
+Embedded Windows 7 (64-bit),Windows/x64_Embedded_Windows_7                                                                                              
+Embedded Windows 7 (32-bit),Windows/x86_Embedded_Windows_7  
+All Windows client and serverWindows/All_Windows_Client_Server
