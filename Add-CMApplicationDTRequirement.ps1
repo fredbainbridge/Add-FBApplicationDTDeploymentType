@@ -4,10 +4,10 @@
 function Add-FBApplicationDTRequirement {
 [CmdletBinding()]
 param (
-    $siteCode = "PS1",
+    $siteCode = "LAB",
     $siteServer = "cm01.cm.lab",
     [Parameter(
-        Mandatory=$true, 
+        Mandatory=$false, 
         ValueFromPipeline=$true,
         ValueFromPipelineByPropertyName=$true)       
     ]
@@ -37,7 +37,6 @@ import-module 'C:\Program Files (x86)\Microsoft Configuration Manager\AdminConso
 if ((get-psdrive $sitecode -erroraction SilentlyContinue | measure).Count -ne 1) {
     new-psdrive -Name $SiteCode -PSProvider "AdminUI.PS.Provider\CMSite" -Root $SiteServer
 }
-set-location $sitecode`:
 
 #create the hash
 $NamedPairs = @{};
@@ -47,15 +46,19 @@ Get-Content .\NameValidateSet.txt | ForEach-Object {
     $NamedPairs.Add($name, $operand)
 }
 
+set-location $sitecode`:
+
 }
 
 process {
 $Appdt = Get-CMApplication -Name $appName 
 $xml = [Microsoft.ConfigurationManagement.ApplicationManagement.Serialization.SccmSerializer]::DeserializeFromString($appdt.SDMPackageXML,$True)
+
 $numDTS = $xml.DeploymentTypes.count
 $dts = $xml.DeploymentTypes
 
-$operand = $NamedPairs[$requirement]
+$operand = $NamedPairs[$dynParam1.Value].trim()
+$namedRequirement = $dynParam1.Value
 foreach ($dt in $dts)
 {
     foreach($requirement in $dt.Requirements)
@@ -63,12 +66,11 @@ foreach ($dt in $dts)
         if($requirement.Expression.gettype().name -eq 'OperatingSystemExpression') 
         {
             write-host "found an OS Requirement, appending value to it"
-            $requirement.Expression.Operands.Add($operand)
-            $requirement.Name = $requirement.Name + ", $requirement" 
+            $requirement.Expression.Operands.Add("$operand")
+            $requirement.Name = $requirement.Name + ", $namedRequirement" 
         }
     }
 }
-
 $UpdatedXML = [Microsoft.ConfigurationManagement.ApplicationManagement.Serialization.SccmSerializer]::SerializeToString($XML, $True) 
 $appdt.SDMPackageXML = $UpdatedXML 
 Set-CMApplication -InputObject $appDT
@@ -77,6 +79,6 @@ Set-CMApplication -InputObject $appDT
 
 end
 {
-set-location $env:SystemDrive
+set-location $env:SystemDrive\temp
 }
 }
