@@ -21,7 +21,7 @@ dynamicparam {
     $attributeCollection = new-object -Type System.Collections.ObjectModel.Collection[System.Attribute]
     $attributeCollection.Add($attributes)
     $values =   Get-Content .\NameValidateSet.txt | ForEach-Object {
-                    $PSItem.Split(",")[0]
+                    "`"$($PSItem.Split(",")[0])`"" 
                 } 
     $ValidateSet = new-object System.Management.Automation.ValidateSetAttribute($values)
     $attributeCollection.Add($ValidateSet)
