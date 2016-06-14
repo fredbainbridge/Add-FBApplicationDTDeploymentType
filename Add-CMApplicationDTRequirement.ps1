@@ -11,7 +11,7 @@ param (
         ValueFromPipeline=$true,
         ValueFromPipelineByPropertyName=$true)       
     ]
-    $appName = "test"
+    $appName = "Microsoft CMTrace"
 )
 
 dynamicparam {
@@ -21,9 +21,10 @@ dynamicparam {
     $attributeCollection = new-object -Type System.Collections.ObjectModel.Collection[System.Attribute]
     $attributeCollection.Add($attributes)
     $values =   Get-Content .\NameValidateSet.txt | ForEach-Object {
-                    "`"$($PSItem.Split(",")[0])`"" 
+                    "$($PSItem.Split(",")[0])" 
                 } 
     $ValidateSet = new-object System.Management.Automation.ValidateSetAttribute($values)
+    write-host $ValidateSet.ValidValues
     $attributeCollection.Add($ValidateSet)
 
     $dynParam1 = new-object -Type System.Management.Automation.RuntimeDefinedParameter("Requirement", [string], $attributeCollection)
@@ -79,6 +80,6 @@ Set-CMApplication -InputObject $appDT
 
 end
 {
-set-location $env:SystemDrive\temp
+
 }
 }
