@@ -4,14 +4,15 @@
 function Add-FBApplicationDTRequirement {
 [CmdletBinding()]
 param (
-    $siteCode = "LAB",
-    $siteServer = "cm01.cm.lab",
     [Parameter(
-        Mandatory=$false, 
+        Position=0,
+        Mandatory=$true, 
         ValueFromPipeline=$true,
         ValueFromPipelineByPropertyName=$true)       
     ]
-    $appName = "Microsoft CMTrace"
+    $appName,
+    $siteCode = "LAB",
+    $siteServer = "cm01.cm.lab"   
 )
 
 dynamicparam {
@@ -24,7 +25,7 @@ dynamicparam {
                     "$($PSItem.Split(",")[0])" 
                 } 
     $ValidateSet = new-object System.Management.Automation.ValidateSetAttribute($values)
-    write-host $ValidateSet.ValidValues
+    #write-host $ValidateSet.ValidValues
     $attributeCollection.Add($ValidateSet)
 
     $dynParam1 = new-object -Type System.Management.Automation.RuntimeDefinedParameter("Requirement", [string], $attributeCollection)
@@ -60,13 +61,16 @@ $dts = $xml.DeploymentTypes
 
 $operand = $NamedPairs[$dynParam1.Value].trim()
 $namedRequirement = $dynParam1.Value
+Write-Verbose "Operand $operand"
+Write-Verbose "Requirement $namedRequirement"
 foreach ($dt in $dts)
 {
     foreach($requirement in $dt.Requirements)
     {
         if($requirement.Expression.gettype().name -eq 'OperatingSystemExpression') 
         {
-            write-host "found an OS Requirement, appending value to it"
+            write-verbose "found an OS Requirement, appending value to it"
+            
             $requirement.Expression.Operands.Add("$operand")
             $requirement.Name = $requirement.Name + ", $namedRequirement" 
         }
@@ -80,6 +84,6 @@ Set-CMApplication -InputObject $appDT
 
 end
 {
-
+ set-location c:
 }
 }
