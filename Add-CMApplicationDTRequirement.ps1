@@ -2,6 +2,29 @@
 
 #endregion NameValidateSet
 function Add-FBApplicationDTRequirement {
+<#
+.SYNOPSIS
+Add an additional OS deployment to an existing OS requirement for a Deployment Type
+.DESCRIPTION
+This is especially useful if you have a lot of applications that have existing OS requirements attached to deployment
+types and you want to add another.  i.e. Windows 10 just came.  There must already be an OS requirement for the deployment 
+type for this to work.
+This needs to be run on a system that has the ConfigMgr console installed and it assumes it is installed here - 
+  'C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\ConfigurationManager.psd1'
+  Modify the begin statement to change this.
+This will attempt to add the OS requirement only if it finds an existing OS requirement.
+This will attempt to add the OS requirement to each deployment type it finds.
+.EXAMPLE
+Add-FBApplicationDTRequirement -appName "Microsoft Office 2016 x86" -siteCode "lab" -siteserver "cm01.cm.lab" -Requirement "All Windows 10 (64-bit)"
+.EXAMPLE
+$appNames | Add-FBApplicationDTRequirement -siteCode "lab" -siteserver "cm01.cm.lab" -Requirement "All Windows 10 (64-bit)"
+.PARAMETER appName
+This is the name of the configmgr application that has the deployment types that you want to add the OS requirement to. This accepts input from pipeline.
+.PARAMETER siteCode
+This the ConfigMgr site code you are working with. Defaults to LAB
+.PARAMETER siteServer
+This the site server you are going to working with.  WMI calls are made to this server.  It is most likely your primary site server.
+#>
 [CmdletBinding()]
 param (
     [Parameter(
