@@ -9,6 +9,8 @@ Add an additional OS deployment to an existing OS requirement for a Deployment T
 This is especially useful if you have a lot of applications that have existing OS requirements attached to deployment
 types and you want to add another.  i.e. Windows 10 just came.  There must already be an OS requirement for the deployment 
 type for this to work.
+The NameValidateSet.txt must exist in the working directory of the script.
+It can be found here https://github.com/fredbainbridge/Add-FBApplicationDTDeploymentType
 This needs to be run on a system that has the ConfigMgr console installed and it assumes it is installed here - 
   'C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\ConfigurationManager.psd1'
   Modify the begin statement to change this.
