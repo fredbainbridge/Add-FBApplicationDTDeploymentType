@@ -1,7 +1,4 @@
-﻿#region namevalidateset
-
-#endregion NameValidateSet
-function Add-FBApplicationDTRequirement {
+﻿function Add-FBApplicationDTRequirement {
 <#
 .SYNOPSIS
 Add an additional OS deployment to an existing OS requirement for a Deployment Type
@@ -60,7 +57,7 @@ dynamicparam {
 }
     
 begin {
-import-module 'C:\Program Files (x86)\Microsoft Configuration Manager\AdminConsole\bin\ConfigurationManager.psd1' -force #make this work for you
+import-module "$($ENV:SMS_ADMIN_UI_PATH)\..\ConfigurationManager.psd1"  -force #make this work for you
 if ((get-psdrive $sitecode -erroraction SilentlyContinue | measure).Count -ne 1) {
     new-psdrive -Name $SiteCode -PSProvider "AdminUI.PS.Provider\CMSite" -Root $SiteServer
 }
@@ -94,21 +91,28 @@ foreach ($dt in $dts)
     {
         if($requirement.Expression.gettype().name -eq 'OperatingSystemExpression') 
         {
-            write-verbose "found an OS Requirement, appending value to it"
-            
-            $requirement.Expression.Operands.Add("$operand")
-            $requirement.Name = $requirement.Name + ", $namedRequirement" 
+            If ($requirement.Name -Notlike "*$namedRequirement*" )
+            {
+                write-verbose "Found an OS Requirement, appending value to it"
+                $requirement.Expression.Operands.Add("$operand")
+                $requirement.Name = [regex]::replace($requirement.Name, '(?<=Operating system One of {)(.*)(?=})', "`$1, $namedRequirement")
+                $null = $dt.Requirements.Remove($requirement)
+                $requirement.RuleId = "Rule_$([guid]::NewGuid())"
+                $null = $dt.Requirements.Add($requirement)
+                Break
+            }
         }
     }
 }
 $UpdatedXML = [Microsoft.ConfigurationManagement.ApplicationManagement.Serialization.SccmSerializer]::SerializeToString($XML, $True) 
 $appdt.SDMPackageXML = $UpdatedXML 
-Set-CMApplication -InputObject $appDT
+$appdt.put()
+$t = Set-CMApplication -InputObject $appDT -PassThru
 
 }
 
 end
 {
- set-location c:
+set-location c:
 }
-}
+} 
