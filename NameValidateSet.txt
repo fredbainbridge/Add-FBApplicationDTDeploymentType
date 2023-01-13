@@ -50,3 +50,6 @@ Windows Embedded 8 Standard (32-bit),Windows/All_x86_Windows_Embedded_8_Standard
 Embedded Windows 7 (64-bit),Windows/x64_Embedded_Windows_7                                                                                              
 Embedded Windows 7 (32-bit),Windows/x86_Embedded_Windows_7  
 All Windows client and serverWindows/All_Windows_Client_Server
+All Windows 11 (64-bit),Windows/All_x64_Windows_11_and_higher_Clients
+All Windows 11 Enterprise multi-session,Windows/All_MultiSession_Enterprise_Windows_11_higher
+All Windows 11 (ARM64),Windows/All_ARM64_Windows_11_and_higher_Clients
